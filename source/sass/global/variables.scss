@@ -1,0 +1,28 @@
+// // Colors
+
+$white: #ffffff;
+$sky-blue: #00b2ff;
+$tangaroa: #1b2d37;
+$regent-grey: #788891;
+$dim-gray: #666666;
+$light-gray: #cdcdcd;
+$finlandia: #626962;
+$whisper: #ebebeb;
+$error: #ff0000;
+
+// Font
+
+$roboto-condensed: "Roboto Condensed", "Arial", sans-serif;
+$pt-mono: "PT Mono", "Monaco", monospace;
+
+@mixin font($font, $style: normal, $weight: 400) {
+  font-family: $font;
+  font-style: $style;
+  font-weight: $weight;
+}
+
+// Viewports
+
+$desktop-width: 1024px;
+$tablet-width: 1023px;
+$mobile-width: 767px;

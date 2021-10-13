@@ -1,0 +1,208 @@
+.page-header {
+  width: 100%;
+  height: auto;
+  min-height: 878px;
+  background-color: $tangaroa;
+  background-image:
+    url("../img/promo/promo-mask.png"),
+    url("../img/promo/background-mask.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: $tablet-width) {
+    min-height: 692px;
+    background-image:
+      url(".../img/promo/promo-mask-tablet.png"),
+      url("../img/promo/background-mask-tablet.svg");
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 661px;
+    background-image:
+      url("../img/promo/promo-mask-mobile.png"),
+      url("../img/promo/background-mask-mobile.svg");
+  }
+
+  @media (min-resolution: 2dppx) {
+    background-image:
+      url("../img/promo/promo-mask@2x.png"),
+      url("../img/promo/background-mask.svg");
+
+    @media (max-width: $tablet-width) {
+      background-image:
+        url("../img/promo/promo-mask-tablet@2x.png"),
+        url("../img/promo/background-mask-tablet.svg");
+    }
+
+    @media (max-width: $mobile-width) {
+      background-image:
+        url("../img/promo/promo-mask-mobile@2x.png"),
+        url("../img/promo/background-mask-mobile.svg");
+    }
+  }
+}
+
+.page-header__wrapper {
+  width: calc(100% - 50px);
+  min-height: 52px;
+  min-width: 878px;
+  max-width: 1411px;
+  margin: 0 auto;
+  padding: 33px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet-width) {
+    min-width: 320px;
+    max-width: 768px;
+    padding: 20px 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: calc(100% - 30px);
+    min-width: 290px;
+    max-width: none;
+    min-height: 38px;
+    padding: 17px 0 17px 2px;
+  }
+}
+
+.page-header__wrapper--wide {
+  width: calc(100% - 354px);
+}
+
+.page-header__contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  width: 47%;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: $tablet-width) {
+    height: 52px;
+  }
+
+  @media (max-width: $mobile-width) {
+    height: 38px;
+  }
+}
+
+.page-header__link {
+  @include font($pt-mono, normal, 400);
+  font-size: 16px;
+  line-height: 18px;
+  display: inline-flex;
+  padding: 16px 0;
+  text-decoration: none;
+  color: $white;
+  outline: none;
+
+  @media (max-width: $tablet-width) {
+    padding: 0 0 4px;
+  }
+}
+
+.page-header__link:active {
+  padding: 16px 0 15px;
+  border-bottom: 1px solid $sky-blue;
+
+  @media (max-width: $tablet-width) {
+    border-bottom: none;
+    padding: 0 0 4px;
+  }
+}
+
+.page-header__link:not(:last-of-type) {
+  margin-right: 88px;
+
+  @media (max-width: $tablet-width) {
+    margin-right: 32px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-right: 24px;
+  }
+}
+
+.page-header__link--mail svg {
+  margin-right: 21px;
+  fill: $sky-blue;
+
+  @media (max-width: $tablet-width) {
+    width: 25px;
+    height: 19px;
+    margin-right: 0;
+  }
+}
+
+.page-header__link--phone svg {
+  margin-right: 8px;
+  fill: $sky-blue;
+
+  @media (max-width: $tablet-width) {
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+  }
+}
+
+.page-header__link:focus svg,
+.page-header__link:hover svg {
+  @media (max-width: $tablet-width) {
+    fill: $white;
+  }
+}
+
+.page-header__link:active svg {
+  @media (max-width: $tablet-width) {
+    fill: $sky-blue;
+    opacity: .7;
+  }
+}
+
+.page-header__link span {
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.page-header__link:focus span,
+.page-header__link:hover span {
+  color: $sky-blue;
+}
+
+.page-header__contact-button {
+  @include font($roboto-condensed, normal, 700);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  width: 180px;
+  height: 45px;
+  margin: 0 0 0 48px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid $white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $white;
+  cursor: pointer;
+  outline: none;
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.page-header__contact-button:focus,
+.page-header__contact-button:hover {
+  border-color: $sky-blue;
+}
+
+.page-header__contact-button:active {
+  color: $sky-blue;
+}

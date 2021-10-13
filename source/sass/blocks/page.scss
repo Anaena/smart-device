@@ -1,0 +1,20 @@
+.page {
+  font-size: 16px;
+  line-height: 28px;
+  height: 100%;
+}
+
+.page__body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  align-content: start;
+  min-width: 290px;
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.page__body--locked {
+  position: fixed;
+  overflow-y: scroll;
+}

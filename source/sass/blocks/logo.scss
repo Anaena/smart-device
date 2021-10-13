@@ -1,0 +1,26 @@
+.logo {
+  width: 25%;
+  height: 52px;
+
+  @media (max-width: $tablet-width) {
+    width: 35%;
+  }
+
+  @media (max-width: $mobile-width) {
+    height: 38px;
+  }
+}
+
+.logo img {
+  width: 202px;
+  height: 52px;
+
+  @media (max-width: $tablet-width) {
+    display: block;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 38px;
+    height: 38px;
+  }
+}

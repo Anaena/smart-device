@@ -108,7 +108,7 @@
 }
 
 .page-header__link:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .page-header__link:not(:last-of-type) {
@@ -155,7 +155,7 @@
 .page-header__link:active svg {
   @media (max-width: $tablet-width) {
     fill: $sky-blue;
-    opacity: .7;
+    opacity: 0.7;
   }
 }
 

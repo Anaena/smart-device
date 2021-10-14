@@ -4,39 +4,52 @@
   min-height: 878px;
   background-color: $tangaroa;
   background-image:
+    url("../img/promo/promo-img.png"),
     url("../img/promo/promo-mask.png"),
     url("../img/promo/background-mask.svg");
-  background-position: center;
+  background-position: calc(100% - 177px) 258px, center, 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:  705px 515px, cover, cover;
 
   @media (max-width: $tablet-width) {
-    min-height: 692px;
+    min-height: 687px;
     background-image:
-      url(".../img/promo/promo-mask-tablet.png"),
+      url("../img/promo/promo-img-tablet.png"),
+      url("../img/promo/promo-mask-tablet.png"),
       url("../img/promo/background-mask-tablet.svg");
+    background-position: right 112px, center, calc(100% + 2px) 0px;
+    background-size:  260px 340px, cover, auto;
   }
 
   @media (max-width: $mobile-width) {
-    min-height: 661px;
+    min-height: 647px;
     background-image:
+      url("../img/promo/promo-img-mobile.png"),
       url("../img/promo/promo-mask-mobile.png"),
       url("../img/promo/background-mask-mobile.svg");
+    background-position: right 92px, center, 100% 0;
+    background-size: 294px 220px, cover, auto;
   }
 
   @media (min-resolution: 2dppx) {
     background-image:
+      url("../img/promo/promo-img@2x.png"),
       url("../img/promo/promo-mask@2x.png"),
       url("../img/promo/background-mask.svg");
+    background-position: calc(100% - 177px) 258px, center, 100%;
+    background-repeat: no-repeat;
+    background-size:  705px 515px, cover, cover;
 
     @media (max-width: $tablet-width) {
       background-image:
+        url("../img/promo/promo-img-tablet@2x.png"),
         url("../img/promo/promo-mask-tablet@2x.png"),
         url("../img/promo/background-mask-tablet.svg");
     }
 
     @media (max-width: $mobile-width) {
       background-image:
+        url("../img/promo/promo-img-mobile@2x.png"),
         url("../img/promo/promo-mask-mobile@2x.png"),
         url("../img/promo/background-mask-mobile.svg");
     }
@@ -48,7 +61,7 @@
   min-height: 52px;
   min-width: 878px;
   max-width: 1411px;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   padding: 33px 0 20px;
   display: flex;
   flex-wrap: wrap;
@@ -135,7 +148,7 @@
 }
 
 .page-header__link--phone svg {
-  margin-right: 8px;
+  margin-right: 18px;
   fill: $sky-blue;
 
   @media (max-width: $tablet-width) {
@@ -160,6 +173,8 @@
 }
 
 .page-header__link span {
+  width: auto;
+
   @media (max-width: $tablet-width) {
     display: none;
   }
@@ -177,7 +192,7 @@
   letter-spacing: 0.05em;
   width: 180px;
   height: 45px;
-  margin: 0 0 0 48px;
+  margin: 0 0 0 50px;
   text-align: center;
   text-transform: uppercase;
   border: 1px solid $white;
@@ -199,4 +214,7 @@
   &:active {
     color: $sky-blue;
   }
+}
+
+.page-header__promo {
 }

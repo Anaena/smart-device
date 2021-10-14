@@ -5,6 +5,10 @@
   background: $snow;
 }
 
+.page-footer--line{
+  position: relative;
+}
+
 .page-footer::after {
   content: "";
   position: absolute;
@@ -33,6 +37,7 @@
   width: calc(100% - 50px);
   min-width: 878px;
   max-width: 1416px;
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 47% 37% min-content;

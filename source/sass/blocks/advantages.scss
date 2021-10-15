@@ -1,0 +1,145 @@
+
+.advantages__wrapper {
+  width: calc(100% - 50px);
+  min-width: 878px;
+  max-width: 1170px;
+  margin: 50px auto;
+  padding: 60px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet-width) {
+    min-width: 720px;
+    max-width: none;
+    margin: 32px auto;
+    padding: 20px 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: calc(100% - 28px);
+    min-width: 290px;
+    margin: 20px auto;
+    padding: 17px 0 0;
+  }
+}
+
+.advantages__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.advantages__list li {
+  width: calc((100% - 30px) /2);
+  min-height: 299px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding: 43px 40px 20px 41px;
+  border-left: 3px solid $sky-blue;
+
+  @media (max-width: $tablet-width) {
+    min-height: 232px;
+    padding: 24px 20px 23px 25px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    display: block;
+    padding: 25px 17px 27px 24px;
+    margin-bottom: 20px;
+
+    &:not(:first-child) {
+      padding-right: 13px;
+      padding-bottom: 32px;
+    }
+  }
+}
+
+.advantages__list svg {
+  fill: $sky-blue;
+}
+
+.advantages__icon--stopwatch {
+  @media (max-width: $tablet-width) {
+    width: 29px;
+    height: 36px;
+  }
+}
+
+.advantages__icon--hired {
+  @media (max-width: $tablet-width) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.advantages__icon--detective {
+  @media (max-width: $tablet-width) {
+    width: 30px;
+    height: 26px;
+  }
+}
+
+.advantages__icon--tag {
+  @media (max-width: $tablet-width) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.advantages__list h3 {
+  @include font($roboto-condensed, normal, 400);
+  font-size: 24px;
+  line-height: 34px;
+  margin: 20px 0 16px;
+  color: $sky-blue;
+
+  @media (max-width: $tablet-width) {
+    margin: 10px 0 7px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin: 4px 0 8px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.advantages__list p {
+  @include font($pt-mono, normal, 400);
+  font-size: 16px;
+  line-height: 22px;
+  width: 99%;
+  margin: 0;
+  color: $dim-gray;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+  }
+}
+
+.advantages__list li:hover {
+  background-color: $sky-blue;
+  border-left: none;
+
+  svg {
+    fill: $white;
+  }
+
+  h3 {
+    color: $white;
+  }
+
+  p {
+    color: $white;
+  }
+}

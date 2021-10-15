@@ -20,16 +20,12 @@
       width: 90%;
     }
 
-    .accordion__title button::after {
-      content: "";
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      top: 7px;
-      right: 7px;
-      background-image: url("../img/icon-minus.svg");
-      background-repeat: no-repeat;
-      background-position: center;
+    .accordion__icon--plus {
+      display: none;
+    }
+
+    .accordion__icon--minus {
+      display: flex;
     }
   }
 }
@@ -64,29 +60,44 @@
 
   @media (max-width: $mobile-width) {
     display: flex;
-    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 25px;
     padding: 0;
     background-color: transparent;
     border: none;
+    outline: none;
     cursor: pointer;
   }
 }
 
-.accordion__title button::after {
+.accordion__title svg {
+  fill: $silver;
+}
+
+.accordion__title button:focus svg,
+.accordion__title:hover svg {
+  fill: $sky-blue;
+}
+
+.accordion__title button:active svg,
+.accordion__title:active svg {
+  opacity: 0.7;
+}
+
+.accordion__icon--plus {
   @media (max-width: $mobile-width) {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 7px;
-    right: 7px;
-    background-image: url("../img/icon-plus.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+    display: flex;
   }
 }
+
+.accordion__icon--minus {
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
 
 .accordion__content {
   display: flex;

@@ -47,25 +47,17 @@
         <div class="promo__description">
           <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
         </div>
-        <button class="promo__button" type="button" aria-label="Нажми чтобы получить консультацию">Получить бесплатную
-          консультацию</button>
-        <!-- <div class="promo__picture">
-          <picture>
-            <source type="image/webp" media="(max-width: 767px)"
-              srcset="img/promo/promo-img-mobile.webp 1x, img/promo/promo-img-mobile@2x.webp 2x">
-            <source type="image/webp" media="(max-width: 1023px)"
-              srcset="img/promo/promo-img-tablet.webp 1x, img/promo/promo-img-tablet@2x.webp 2x">
-            <source type="image/webp" srcset="img/promo/promo-img.webp 1x, img/promo/promo-img@2x.webp 2x">
-            1х: 705px; 2x: 1410px
-            <img src="img/promo/promo-img.png" width="705" height="515" srcset="img/promo/promo-img@2x.png 2x" alt="#">
-          </picture>
-        </div> -->
+        <a class="promo__button" href="#form" aria-label="Нажми чтобы получить консультацию">
+          <p>Получить бесплатную консультацию</p>
+          <span>Бесплатная консультация</span>
+        </a>
       </div>
     </section>
   </header>
   <main class="page-main">
     <h1 class="visually-hidden">«Smart Device» умные технологии</h1>
   </main>
+  <!--page-footer--nojs - меняет max-height когда нет js; page-footer--line - добавляет серую линию к футеру на desktop версии -->
   <footer class="page-footer page-footer--nojs page-footer--line">
     <div class="page-footer__wrapper">
       <a class="page-footer__logo">
@@ -91,11 +83,15 @@
           </svg>
         </a>
       </div>
-      <div class="page-footer__middle">
-        <nav class="page-footer__navigation">
-          <h2>Разделы сайта</h2>
-
-          <ul class="">
+      <!--accordion--nojs - открывает все вкладки аккордеона когда нет js-->
+      <div class="page-footer__middle accordion accordion--nojs">
+        <!--  accordion__item--active открывает вкладкe аккордеона-->
+        <nav class="page-footer__navigation accordion__item">
+          <div class="accordion__title">
+            <h2>Разделы сайта</h2>
+            <button type="button" aria-label="Нажми чтобы узнать список разделов сайта"></button>
+          </div>
+          <ul class="accordion__content">
             <li>
               <a href="#">О компании</a>
             </li>
@@ -119,10 +115,12 @@
             </li>
           </ul>
         </nav>
-        <section class="page-footer__contacts">
-          <h2>Наш офис</h2>
-
-          <ul class="">
+        <section class="page-footer__contacts accordion__item">
+          <div class="accordion__title">
+            <h2>Наш офис</h2>
+            <button type="button" aria-label="Нажми чтобы узнать наши контакты"></button>
+          </div>
+          <ul class="accordion__content">
             <li>
               г. Мытищи, Олимпийский проспект, д.10
             </li>

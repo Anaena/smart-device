@@ -5,7 +5,7 @@
   background: $snow;
 }
 
-.page-footer--line{
+.page-footer--line {
   position: relative;
 }
 
@@ -57,10 +57,11 @@
 
   @media (max-width: $mobile-width) {
     min-width: 300px;
-    max-width: none;
+    max-width: 767;
     max-height: 685px;
     grid-template-columns: 1fr;
-    grid-template-rows: min-content min-content min-content 53% min-content;
+    grid-template-rows: min-content min-content min-content max-content min-content;
+    gap: 0;
     padding: 45px 0 10px;
   }
 }
@@ -82,7 +83,7 @@
     grid-column: 1;
     grid-row: 1 / 2;
     justify-content: center;
-    margin: 0;
+    margin: 0 0 22px;
   }
 }
 
@@ -127,7 +128,7 @@
   }
 
   @media (max-width: $mobile-width) {
-    margin: 0px 15px 0 0;
+    margin: 0 15px 0 0;
   }
 
   &:hover svg,
@@ -145,7 +146,6 @@
     margin: 0;
   }
 }
-
 
 .page-footer__middle {
   min-height: 150px;
@@ -167,6 +167,7 @@
     grid-column: 1;
     grid-row: 4 / 5;
     padding-top: 5px;
+    margin: 20px 0 20px;
   }
 }
 
@@ -187,6 +188,23 @@
   }
 }
 
+.page-footer__middle::after {
+  @media (max-width: $tablet-width) {
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 5px;
+    right: calc((100vw + 100%) / 2);
+    width: 100vw;
+    box-shadow: 100vw 0 0 $finlandia;
+    opacity: 0.2;
+  }
+
+  @media (max-width: $mobile-width) {
+    bottom: -7%;
+  }
+}
+
 .page-footer__navigation {
   min-width: 500px;
   height: auto;
@@ -194,6 +212,7 @@
   margin: 0 20px 20px 18px;
 
   @media (max-width: $tablet-width) {
+    width: calc((100% - 20px) / 2);
     max-height: 290px;
     min-width: 343px;
     margin: 0 20px 20px 0;
@@ -201,6 +220,7 @@
 
   @media (max-width: $mobile-width) {
     min-width: 300px;
+    width: 100%;
     margin: 0;
   }
 }
@@ -211,30 +231,27 @@
 
   @media (max-width: $tablet-width) {
     min-width: 343px;
+    width: calc((100% - 32px) / 2);
     margin-left: 0;
   }
 
   @media (max-width: $mobile-width) {
     min-width: 300px;
+    width: 100%;
+    position: relative;
   }
 }
 
-.page-footer__middle h2 {
-  @include font($roboto-condensed, normal, 400);
-  font-size: 15px;
-  line-height: 16px;
-  letter-spacing: 0.05em;
-  margin: 0;
-  color: $tangaroa;
-  text-transform: uppercase;
-
-  @media (max-width: $tablet-width) {
-    margin-left: 2px;
-  }
-
+.page-footer__contacts::before {
   @media (max-width: $mobile-width) {
-    padding: 30px 0 25px;
-    margin-left: 5px;
+    content: "";
+    position: absolute;
+    height: 1px;
+    top: 2px;
+    right: calc((100vw + 100%) / 2);
+    width: 100vw;
+    box-shadow: 100vw 0 0 $finlandia;
+    opacity: 0.2;
   }
 }
 
@@ -250,43 +267,10 @@
   }
 }
 
-.page-footer__navigation ul,
-.page-footer__contacts ul {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  height: auto;
-  max-height: 123px;
-  margin: 24px 0;
-  padding: 0;
-  list-style: none;
-
-  @media (max-width: $tablet-width) {
-    max-height: 292px;
-  }
-
-  @media (max-width: $mobile-width) {
-    margin: 7px 0 7px 5px;
-    width: 90%;
-  }
-}
-
 .page-footer__navigation li {
   width: auto;
   margin-right: 55px;
   line-height: 25px;
-}
-
-.page-footer__navigation a,
-.page-footer__contacts a,
-.page-footer__contacts li {
-  @include font($pt-mono, normal, 400);
-  font-size: 15px;
-  line-height: 25px;
-  padding: 0;
-  outline: none;
-  color: $tangaroa-light;
 }
 
 .page-footer__copyright,
@@ -320,6 +304,7 @@
     grid-column: 1;
     grid-row: 2 / 3;
     justify-content: center;
+    margin: 0 0 19px;
   }
 }
 
@@ -332,7 +317,6 @@
   @media (max-width: $tablet-width) {
     grid-column: 1 / -1;
     min-height: 70px;
-    position: relative;
   }
 
   @media (max-width: $mobile-width) {
@@ -342,23 +326,7 @@
     align-items: flex-start;
     min-height: 77px;
     margin-left: 0;
-  }
-}
-
-.page-footer__info::before {
-  @media (max-width: $tablet-width) {
-    content: "";
-    position: absolute;
-    height: 1px;
-    top: 2px;
-    right: calc((100vw + 100%) / 2);
-    width: 100vw;
-    box-shadow: 100vw 0 0 $finlandia;
-    opacity: 0.2;
-  }
-
-  @media (max-width: $mobile-width) {
-    top: -29px;
+    margin-top: 30px;
   }
 }
 

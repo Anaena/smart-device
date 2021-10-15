@@ -9,7 +9,7 @@
     url("../img/promo/background-mask.svg");
   background-position: calc(100% - 177px) 258px, center, 100%;
   background-repeat: no-repeat;
-  background-size:  705px 515px, cover, cover;
+  background-size: 705px 515px, cover, cover;
 
   @media (max-width: $tablet-width) {
     min-height: 687px;
@@ -17,8 +17,8 @@
       url("../img/promo/promo-img-tablet.png"),
       url("../img/promo/promo-mask-tablet.png"),
       url("../img/promo/background-mask-tablet.svg");
-    background-position: right 112px, center, calc(100% + 2px) 0px;
-    background-size:  260px 340px, cover, auto;
+    background-position: right 112px, center, calc(100% + 2px) 0;
+    background-size: 260px 340px, cover, auto;
   }
 
   @media (max-width: $mobile-width) {
@@ -38,7 +38,7 @@
       url("../img/promo/background-mask.svg");
     background-position: calc(100% - 177px) 258px, center, 100%;
     background-repeat: no-repeat;
-    background-size:  705px 515px, cover, cover;
+    background-size: 705px 515px, cover, cover;
 
     @media (max-width: $tablet-width) {
       background-image:
@@ -214,7 +214,4 @@
   &:active {
     color: $sky-blue;
   }
-}
-
-.page-header__promo {
 }

@@ -4,18 +4,19 @@
   min-width: 878px;
   max-width: 1420px;
   margin: 0 auto;
-  padding: 90px 0 20px;
+  padding: 150px 0 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 
   @media (max-width: $tablet-width) {
     width: calc(100% - 176px);
     min-width: 591px;
     max-width: 1023px;
     min-height: 420px;
-    padding: 20px 0;
+    padding: 47px 0;
+    align-items: flex-start;
   }
 
   @media (max-width: $mobile-width) {
@@ -34,11 +35,11 @@
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: $white;
-  margin: 70px 0 10px;
+  margin: 0;
 
   @media (max-width: $tablet-width) {
     width: 70%;
-    margin: 27px 0 10px;
+    margin: 0 0 30px;
     font-size: 60px;
     line-height: 70px;
   }
@@ -61,12 +62,12 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  margin: 0 0 25px;
+  margin: 0 0 20px;
   padding: 0 0 0 95px;
   color: $white;
 
   @media (max-width: $tablet-width) {
-    margin: 0 0 37px;
+    margin: 0 0 55px;
     padding: 0 0 0 50px;
     font-size: 18px;
     line-height: 28px;
@@ -113,9 +114,12 @@
 }
 
 .promo__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 407px;
   height: 55px;
-  margin: 0 0 0 96px;
+  margin: 0 0 7px 96px;
   padding: 17px 10px 14px;
   font-size: 16px;
   line-height: 19px;

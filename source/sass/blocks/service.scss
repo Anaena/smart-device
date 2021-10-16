@@ -1,0 +1,235 @@
+.service {
+  height: auto;
+  background: $tangaroa;
+}
+
+.service__wrapper {
+  width: calc(100% - 50px);
+  min-width: 878px;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 60px 0 130px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet-width) {
+    width: calc(100% - 48px);
+    min-width: 720px;
+    max-width: none;
+    margin: 0 auto 20px;
+    padding: 20px 0 78px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: calc(100% - 30px);
+    min-width: 290px;
+    padding: 50px 0 64px;
+  }
+}
+
+.service__wrapper h2 {
+  @include font($roboto-condensed, normal, 400);
+  font-size: 36px;
+  line-height: 51px;
+  margin: 30px 0 50px;
+  color: $white;
+
+  @media (max-width: $tablet-width) {
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $mobile-width) {
+    font-size: 28px;
+    line-height: 39px;
+    margin: 0 0 44px 11px;
+  }
+}
+
+.service__wrapper ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: $tablet-width) {
+    grid-template-columns: 1fr;
+    row-gap: 46px;
+    margin-left: 2px;
+  }
+
+  @media (max-width: $mobile-width) {
+    row-gap: 30px;
+  }
+}
+
+.service__item {
+  // max-width: 370px;
+  min-height: 620px;
+  position: relative;
+  padding: 43px 41px;
+  background-color: $tangaroa;
+  background-size: cover;
+  z-index: 1;
+
+  @media (max-width: $tablet-width) {
+    // min-width: 720px;
+    // max-width: none;
+    width: 100%;
+    min-height: 256px;
+    padding: 30px 43px;
+  }
+
+  @media (max-width: $mobile-width) {
+    // min-width: 290px;
+    min-height: 256px;
+    padding: 12px 33px;
+  }
+}
+
+.service__item:last-of-type h3 {
+  @media (max-width: $tablet-width) {
+    margin: 19px 0;
+  }
+}
+
+.service__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $tangaroa;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.service__item::after {
+  content: "";
+  position: absolute;
+  width: 63px;
+  height: 63px;
+  right: 0;
+  bottom: 0;
+  background-color: $sky-blue;
+  background-image: url("../../img/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.service__item--production {
+  background-image:
+    image-set(
+      url("../img/service/production.jpg") 1x,
+      url("../img/service/production@2x.jpg") 2x);
+
+  @media (max-width: $tablet-width) {
+    min-width: 715px;
+    background-image:
+      image-set(
+      url("../img/service/production-tablet.jpg") 1x,
+      url("../img/service/production-tablet@2x.jpg") 2x);
+  }
+
+  @media (max-width: $mobile-width) {
+    min-width: 290px;
+    background-image:
+      image-set(
+      url("../img/service/production-mobile.jpg") 1x,
+      url("../img/service/production-mobile@2x.jpg") 2x);
+  }
+}
+
+.service__item--assembling {
+  background-image:
+    image-set(
+      url("../img/service/montage.jpg") 1x,
+      url("../img/service/montage@2x.jpg") 2x);
+
+  @media (max-width: $tablet-width) {
+    background-image:
+      image-set(
+      url("../img/service/montage-tablet.jpg") 1x,
+      url("../img/service/montage-tablet@2x.jpg") 2x);
+  }
+
+  @media (max-width: $mobile-width) {
+    background-image:
+      image-set(
+      url("../img/service/montage-mobile.jpg") 1x,
+      url("../img/service/montage-mobile@2x.jpg") 2x);
+  }
+}
+
+.service__item--accessories {
+  background-image:
+    image-set(
+      url("../img/service/accessories.jpg") 1x,
+      url("../img/service/accessories@2x.jpg") 2x);
+
+  @media (max-width: $tablet-width) {
+    background-image:
+      image-set(
+        url("../img/service/accessories-tablet.jpg") 1x,
+        url("../img/service/accessories-tablet@2x.jpg") 2x);
+  }
+
+ @media (max-width: $mobile-width) {
+    background-image:
+      image-set(
+        url("../img/service/accessories-mobile.jpg") 1x,
+        url("../img/service/accessories-mobile@2x.jpg") 2x);
+  }
+}
+
+.service__item h3 {
+  width: 60%;
+  margin: 8px 0 8px 3px;
+
+  @media (max-width: $tablet-width) {
+    width: 28%;
+    margin: 8px 0;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 80%;
+  }
+}
+
+.service__link {
+  @include font($roboto-condensed, normal, 400);
+  font-size: 20px;
+  line-height: 30px;
+  margin: 30px 0 50px;
+  color: $white;
+  outline: none;
+  z-index: 1;
+}
+
+.service__link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.service__link:hover::before,
+.service__link:focus::before {
+  border: 2px solid $sky-blue;
+}
+
+.service__link:active::before {
+  border: 2px solid $white;
+}
+
+.service__button {}

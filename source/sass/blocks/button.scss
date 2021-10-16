@@ -1,0 +1,9 @@
+.button {
+  @include font($roboto-condensed, normal, 700);
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  text-transform: uppercase;
+}

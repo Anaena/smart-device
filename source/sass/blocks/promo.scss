@@ -73,7 +73,7 @@
   }
 
   @media (max-width: $mobile-width) {
-    margin: 0 0 40px;
+    margin: 0 0 41px;
     font-size: 16px;
     line-height: 25px;
   }
@@ -112,23 +112,16 @@
   }
 }
 
-
 .promo__button {
-  @include font($roboto-condensed, normal, 700);
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   width: 407px;
   height: 55px;
   margin: 0 0 0 96px;
   padding: 17px 10px 14px;
+  font-size: 16px;
+  line-height: 19px;
   background: $sky-blue;
   color: $white;
   border: none;
-  border-radius: 5px;
-  text-align: center;
-  outline: none;
 
   @media (max-width: $tablet-width) {
     width: 379px;
@@ -153,7 +146,7 @@
   opacity: 0.7;
 }
 
-.promo__button p{
+.promo__button p {
   margin: 0;
   padding: 0;
 
@@ -162,7 +155,7 @@
   }
 }
 
-.promo__button span{
+.promo__button span {
   display: none;
 
   @media (max-width: $mobile-width) {

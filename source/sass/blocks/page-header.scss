@@ -45,6 +45,8 @@
         url("../img/promo/promo-img-tablet@2x.png"),
         url("../img/promo/promo-mask-tablet@2x.png"),
         url("../img/promo/background-mask-tablet.svg");
+      background-position: 100% 112px, center, calc(100% + 2px) 0;
+      background-size: 260px 340px, cover, auto;
     }
 
     @media (max-width: $mobile-width) {
@@ -52,6 +54,8 @@
         url("../img/promo/promo-img-mobile@2x.png"),
         url("../img/promo/promo-mask-mobile@2x.png"),
         url("../img/promo/background-mask-mobile.svg");
+      background-position: right 92px, center, 100% 0;
+      background-size: 294px 220px, cover, auto;
     }
   }
 }
@@ -186,21 +190,14 @@
 }
 
 .page-header__contact-button {
-  @include font($roboto-condensed, normal, 700);
   font-size: 14px;
   line-height: 16px;
-  letter-spacing: 0.05em;
   width: 180px;
   height: 45px;
   margin: 0 0 0 50px;
-  text-align: center;
-  text-transform: uppercase;
   border: 1px solid $white;
-  border-radius: 5px;
   background-color: transparent;
   color: $white;
-  cursor: pointer;
-  outline: none;
 
   @media (max-width: $tablet-width) {
     display: none;

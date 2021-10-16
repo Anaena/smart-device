@@ -3,8 +3,8 @@
   width: calc(100% - 50px);
   min-width: 878px;
   max-width: 1170px;
-  margin: 50px auto;
-  padding: 60px 0 20px;
+  margin: 50px auto 70px;
+  padding: 60px 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -13,8 +13,8 @@
   @media (max-width: $tablet-width) {
     min-width: 720px;
     max-width: none;
-    margin: 32px auto;
-    padding: 20px 0;
+    margin: 32px auto 20px;
+    padding: 20px 0 0;
   }
 
   @media (max-width: $mobile-width) {
@@ -26,25 +26,32 @@
 }
 
 .advantages__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: $mobile-width) {
+    display: block;
+  }
 }
 
 .advantages__list li {
-  width: calc((100% - 30px) /2);
   min-height: 299px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 30px;
   padding: 43px 40px 20px 41px;
+  background-color: $white;
   border-left: 3px solid $sky-blue;
+  border-top: 1px solid $whisper;
+  border-bottom: 1px solid $whisper;
+  border-right: 1px solid $whisper;
 
   @media (max-width: $tablet-width) {
     min-height: 232px;
@@ -59,7 +66,7 @@
 
     &:not(:first-child) {
       padding-right: 13px;
-      padding-bottom: 32px;
+      padding-bottom: 30px;
     }
   }
 }
@@ -79,6 +86,11 @@
   @media (max-width: $tablet-width) {
     width: 32px;
     height: 32px;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 0;
   }
 }
 
@@ -86,6 +98,11 @@
   @media (max-width: $tablet-width) {
     width: 30px;
     height: 26px;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 0;
   }
 }
 
@@ -93,6 +110,11 @@
   @media (max-width: $tablet-width) {
     width: 32px;
     height: 32px;
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-bottom: 0;
   }
 }
 
@@ -104,11 +126,11 @@
   color: $sky-blue;
 
   @media (max-width: $tablet-width) {
-    margin: 10px 0 7px;
+    margin: 7px 0 8px;
   }
 
   @media (max-width: $mobile-width) {
-    margin: 4px 0 8px;
+    margin: 3px 0 8px;
     font-size: 20px;
     line-height: 28px;
   }

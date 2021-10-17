@@ -149,23 +149,23 @@
           <form class="questions__form form" action="https://echo.htmlacademy.ru" method="GET">
             <div class="form__item form__item--name">
               <label class="visually-hidden" for="name">Введите Ваше Имя</label>
-              <input id="name" type="text" name="username" minlength="1" placeholder="Имя" required="">
+              <input id="name" type="text" name="username" minlength="1" placeholder="Имя" autocomplete="off" required="">
             </div>
             <div class="form__item form__item--phone">
               <label class="visually-hidden" for="phone">Введите Ваш номер телефона</label>
               <input id="phone" type="tel" name="userphone" placeholder="Телефон" pattern="^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$" maxlength="12" required="">
             </div>
-            <div class="form__item form__item--phone">
+            <div class="form__item form__item--textarea">
               <label class="visually-hidden" for="textaria">Введите Ваш вопрос</label>
-              <textarea id="textaria" name="question" placeholder="Ваш вопрос" cols="30" rows="10" required=""></textarea>
+              <textarea id="textaria" name="question" placeholder="Ваш вопрос" cols="30" rows="5" required=""></textarea>
             </div>
             <button class="form__button button" type="submit" aria-label="Нажмите кнопку чтобы отправить вопрос">Задать
               вопрос</button>
             <div class="form__agreement">
-              <input type="checkbox" name="agreement" id="form__agree" checked="" required="">
+              <input class="visually-hidden" type="checkbox" name="agreement" id="form__agree" checked="" required="">
               <label for="form__agree">
                 <span class="form__checkbox">
-                  <svg width="10" height="7" aria-hidden="true">
+                  <svg width="9" height="6" viewbox="0 0 9 6" aria-hidden="true">
                     <use xlink:href="img/sprite_auto.svg#icon-check">
                     </use>
                   </svg>

@@ -4,11 +4,15 @@
   column-gap: 31px;
   row-gap: 40px;
   align-items: start;
-  padding: 45px 25px 0 5px;
 
   @media (max-width: $tablet-width) {
     row-gap: 42px;
-    padding: 45px 0 0 5px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
   }
 }
 
@@ -27,7 +31,6 @@
   font-size: 16px;
   line-height: 22px;
   width: 100%;
-  height: 100%;
   padding: 14px 16px;
   background-color: $blue-form;
   color: $white;
@@ -58,11 +61,19 @@
 .form__item textarea:hover,
 .form__item textarea:focus {
   padding: 12px 15px;
+
+  @media (max-width: $tablet-width) {
+    padding: 10px 15px;
+  }
 }
 
 .form__item--phone {
   @media (max-width: $tablet-width) {
     padding: 0 0 0 2px;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-row: 2;
   }
 }
 
@@ -75,9 +86,15 @@
   @media (max-width: $tablet-width) {
     height: 160px;
   }
+
+  @media (max-width: $mobile-width) {
+    grid-row: 3;
+    height: 104px;
+  }
 }
 
 .form__item textarea {
+  height: 100%;
   padding: 13px 16px;
   resize: none;
 
@@ -99,6 +116,12 @@
 
   @media (max-width: $tablet-width) {
     width: 280px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-width: 290px;
+    width: 100%;
+    height: 47px;
   }
 }
 
@@ -125,6 +148,10 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0;
   }
 }
 

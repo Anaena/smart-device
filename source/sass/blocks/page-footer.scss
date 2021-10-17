@@ -359,6 +359,12 @@
   }
 }
 
+.page-footer__info p {
+  @media (max-width: $tablet-width) {
+    margin: 0;
+  }
+}
+
 .page-footer__copyright p {
   margin-right: 75px;
 }

@@ -5,11 +5,20 @@
   row-gap: 40px;
   align-items: start;
   padding: 45px 25px 0 5px;
+
+  @media (max-width: $tablet-width) {
+    row-gap: 42px;
+    padding: 45px 0 0 5px;
+  }
 }
 
 .form__item {
   width: 100%;
   min-height: 50px;
+
+  @media (max-width: $tablet-width) {
+    min-height: 52px;
+  }
 }
 
 .form__item input,
@@ -51,16 +60,30 @@
   padding: 12px 15px;
 }
 
+.form__item--phone {
+  @media (max-width: $tablet-width) {
+    padding: 0 0 0 2px;
+  }
+}
+
 .form__item--textarea {
   width: 100%;
   grid-row: 2;
   grid-column: 1/-1;
   height: 154px;
+
+  @media (max-width: $tablet-width) {
+    height: 160px;
+  }
 }
 
 .form__item textarea {
   padding: 13px 16px;
   resize: none;
+
+  @media (max-width: $tablet-width) {
+    padding: 11px 16px;
+  }
 }
 
 .form__button {
@@ -73,6 +96,10 @@
   background-color: transparent;
   color: $white;
   outline: none;
+
+  @media (max-width: $tablet-width) {
+    width: 280px;
+  }
 }
 
 .form__button:hover,

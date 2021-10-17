@@ -3,6 +3,10 @@
   background-image: url("../../img/form/background-form.svg");
   background-repeat: no-repeat;
   background-position: 175px 65%;
+
+  @media (max-width: $tablet-width) {
+    background-image: none;
+  }
 }
 
 .questions__wrapper {
@@ -17,10 +21,11 @@
   align-items: center;
 
   @media (max-width: $tablet-width) {
-    width: calc(100% - 48px);
-    min-width: 720px;
+    width: calc(100% - 175px);
+    min-width: 590px;
     max-width: none;
-    padding: 20px 0 98px;
+    justify-content: flex-start;
+    padding: 48px 0 106px;
   }
 
   @media (max-width: $mobile-width) {
@@ -31,6 +36,8 @@
 }
 
 .questions__img {
+  width: 50%;
+  
   @media (max-width: $tablet-width) {
     display: none;
   }
@@ -49,6 +56,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 31px 0 0 10px;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    padding: 31px 0 0 0;
+  }
 }
 
 .questions__box h3 {
@@ -59,9 +71,10 @@
   color: $white;
 
   @media (max-width: $tablet-width) {
+    width: 100%;
     font-size: 32px;
     line-height: 45px;
-    margin-left: 3px;
+    margin: 0 0 15px;
   }
 
   @media (max-width: $mobile-width) {
@@ -75,7 +88,7 @@
   @include font($pt-mono, normal, 400);
   font-size: 16px;
   line-height: 22px;
-  margin: 0 0 0 5px;
+  margin: 0 0 11px 5px;
   color: $white;
 }
 

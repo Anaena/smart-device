@@ -9,7 +9,9 @@
   <title>«Smart Device» умные технологии</title>
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="preload" href="js/main.js" as="script">
-  <link rel="preload" href="img/" as="image">
+  <link rel="preload" href="img/promo/promo-img.png" as="image">
+  <link rel="preload" href="img/promo/promo-mask.png" as="image">
+  <link rel="preload" href="img/promo/background-mask.svg" as="image">
   <link rel="preload" href="fonts/roboto-condensed-regular.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/roboto-condensed-700.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="preload" href="fonts/pt-mono-regular.woff2" as="font" type="font/woff2" crossorigin="">
@@ -117,7 +119,8 @@
         <ul class="service__list">
           <li class="service__item service__item--production">
             <h3>
-              <a class="service__link" href="#" aria-label="Нажми чтобы узнать о производстве">Производство печатных плат</a>
+              <a class="service__link" href="#" aria-label="Нажми чтобы узнать о производстве">Производство печатных
+                плат</a>
             </h3>
           </li>
           <li class="service__item service__item--assembling">
@@ -153,17 +156,17 @@
             </div>
             <div class="form__item form__item--phone">
               <label class="visually-hidden" for="phone">Введите Ваш номер телефона</label>
-              <input id="phone" type="tel" name="userphone" placeholder="Телефон" pattern="^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$" maxlength="12" required="">
+              <input class="form__phone" id="phone" type="tel" name="userphone" placeholder="Телефон" maxlength="16" autocomplete="off" required="">
             </div>
             <div class="form__item form__item--textarea">
               <label class="visually-hidden" for="textaria">Введите Ваш вопрос</label>
-              <textarea id="textaria" name="question" placeholder="Ваш вопрос" cols="30" rows="5" required=""></textarea>
+              <textarea id="textaria" name="question" placeholder="Ваш вопрос" cols="30" rows="5"></textarea>
             </div>
             <button class="form__button button" type="submit" aria-label="Нажмите кнопку чтобы отправить вопрос">Задать
               вопрос</button>
             <div class="form__agreement">
-              <input class="visually-hidden" type="checkbox" name="agreement" id="form__agree" checked="" required="">
-              <label for="form__agree">
+              <input class="visually-hidden" type="checkbox" name="agreement" id="form-agree" checked="" required="">
+              <label for="form-agree">
                 <span class="form__checkbox">
                   <svg width="9" height="6" viewbox="0 0 9 6" aria-hidden="true">
                     <use xlink:href="img/sprite_auto.svg#icon-check">
@@ -284,6 +287,40 @@
     </div>
   </footer>
 
+  <!--popup--show - показывает форму обратной связи-->
+  <div class="popup">
+    <div class="popup__wrapper">
+      <h3>Закажите звонок</h3>
+      <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
+      <form class="popup__form form" action="https://echo.htmlacademy.ru" method="GET">
+        <div class="form__item form__item--name popup__item">
+          <label class="visually-hidden" for="user-name">Введите Ваше Имя</label>
+          <input id="user-name" type="text" name="username" minlength="1" placeholder="Имя" autocomplete="off" required="">
+        </div>
+        <div class="form__item form__item--phone popup__item">
+          <label class="visually-hidden" for="user-phone">Введите Ваш номер телефона</label>
+          <input class="form__phone" id="user-phone" type="tel" name="userphone" placeholder="Телефон" maxlength="16" autocomplete="off" required="">
+        </div>
+        <div class="form__item form__item--textarea popup__item popup__item--textarea">
+          <label class="visually-hidden" for="user-question">Введите Ваш вопрос</label>
+          <textarea id="user-question" name="question" placeholder="Ваш вопрос" cols="30" rows="5"></textarea>
+        </div>
+        <button class="form__button button popup__button" type="submit" aria-label="Нажмите кнопку чтобы отправить вопрос">Отправить</button>
+        <div class="form__agreement popup__agreement">
+          <input class="visually-hidden" type="checkbox" name="agreement" id="checkbox-agree" checked="" required="">
+          <label for="checkbox-agree">
+            <span class="form__checkbox">
+              <svg width="9" height="6" viewbox="0 0 9 6" aria-hidden="true">
+                <use xlink:href="img/sprite_auto.svg#icon-check">
+                </use>
+              </svg>
+            </span>
+            Я согласен на обработку персональных данных</label>
+        </div>
+      </form>
+      <button class="popup__close" type="button" aria-label="Нажмите кнопку для закрытия окна"></button>
+    </div>
+  </div>
   <script src="js/main.js"></script>
 </body>
 

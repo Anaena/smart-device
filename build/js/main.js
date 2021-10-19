@@ -2,30 +2,27 @@
 
 const MIN_NAME_LENGTH = 1;
 const TEL_LENGHT = 10;
-
-const body = document.querySelector('body');
-const promoButton = document.querySelector('.promo__button');
-const popup = document.querySelector('.popup');
-const closeButton = document.querySelector('.popup__close');
-
-// Form
-const callbackButton = document.querySelector('.page-header__contact-button');
-const sectionQuestions = document.querySelector('.questions');
-const feedbackForm = document.querySelector('.form');
+const BODY = document.querySelector('body');
+const PROMOBUTTON = document.querySelector('.promo__button');
+const POPUP = document.querySelector('.popup');
+const CLOSEBUTTON = document.querySelector('.popup__close');
+const CALLBACKBUTTON = document.querySelector('.page-header__contact-button');
+const FEEDBACKFORM = document.querySelector('.form');
+const USERNAMEINPUT = FEEDBACKFORM.querySelector('[name="username"]');
+const USERPHONEINPUT = FEEDBACKFORM.querySelector('[name="userphone"]');
+const USERTEXTAREA = FEEDBACKFORM.querySelector('[name="question"]');
 const itemForm = document.querySelectorAll('.form__item');
-const userNameInput = feedbackForm.querySelector('[name="username"]');
-const userPhoneInput = feedbackForm.querySelector('[name="userphone"]');
-const userTextarea = feedbackForm.querySelector('[name="question"]');
+
 let storageName = "";
 let storagePhone = "";
 let storageQuestion = "";
 
 // Utils
 const getBodyScrollTop = () => {
-  return self.pageYOffset || (document.documentElement && document.documentElement.ScrollTop) || (document.body && document.body.scrollTop);
+  return self.pageYOffset || (document.documentElement && document.documentElement.ScrollTop) || (document.BODY && document.BODY.scrollTop);
 }
 
-promoButton.addEventListener('click', getBodyScrollTop);
+PROMOBUTTON.addEventListener('click', getBodyScrollTop);
 
 function maskPhone(selector, masked = '+7(___)___-__-__') {
   const elems = document.querySelectorAll('.form__phone');
@@ -102,30 +99,31 @@ const storage = () => {
 
 const isStorage = storage();
 
-userNameInput.addEventListener('input', (evt) => {
-  checkNameValidity(userNameInput);
+USERNAMEINPUT.addEventListener('input', (evt) => {
+  checkNameValidity(USERNAMEINPUT);
   localStorage.setItem('userName', evt.target.value);
 });
 
-userPhoneInput.addEventListener('input', (evt) => {
-  checkPhoneValidity(userPhoneInput);
+USERPHONEINPUT.addEventListener('input', (evt) => {
+  checkPhoneValidity(USERPHONEINPUT);
   localStorage.setItem('phoneNumber', evt.target.value);
 });
 
 const onFormSubmit = (evt) => {
-  if (!userNameInput.value || !userPhoneInput.value) {
+  if (!USERNAMEINPUT.value || !USERPHONEINPUT.value) {
     evt.preventDefault();
-    userPhoneInput.parentNode.classList.add('form__item--error');
-    userNameInput.parentNode.classList.add('form__item--error');
+    USERPHONEINPUT.parentNode.classList.add('form__item--error');
+    USERNAMEINPUT.parentNode.classList.add('form__item--error');
   } else {
     if (isStorage) {
-      localStorage.setItem('userName', userNameInput.value);
-      localStorage.setItem('phoneNumber', userPhoneInput.value);
+      localStorage.setItem('userName', USERNAMEINPUT.value);
+      localStorage.setItem('phoneNumber', USERPHONEINPUT.value);
+      localStorage.setItem('userQuestion', USERTEXTAREA.value);
     }
   }
 }
 
-feedbackForm.addEventListener('submit', onFormSubmit);
+FEEDBACKFORM.addEventListener('submit', onFormSubmit);
 
 // Popup
 
@@ -139,33 +137,33 @@ const onPopupEscKeydown = (evt) => {
 };
 
 const closeModal = () => {
-  popup.classList.remove('popup--show');
-  body.classList.remove('page__body--locked');
-  feedbackForm.reset();
+  POPUP.classList.remove('popup--show');
+  BODY.classList.remove('page__body--locked');
+  FEEDBACKFORM.reset();
   itemForm.forEach((item) => {
     item.classList.remove('form__item--error');
   });
-  popup.removeEventListener('click', hideModal);
+  POPUP.removeEventListener('click', hideModal);
   document.removeEventListener('keydown', onPopupEscKeydown);
 }
 
 const hideModal = (evt) => {
-  if (evt.target === popup) {
+  if (evt.target === POPUP) {
     closeModal();
   }
 };
 
 const openModal = () => {
-  popup.classList.add('popup--show');
-  body.classList.add('page__body--locked');
-  popup.querySelector('[name="username"]').focus();
+  POPUP.classList.add('popup--show');
+  BODY.classList.add('page__body--locked');
+  POPUP.querySelector('[name="username"]').focus();
   document.addEventListener('click', hideModal);
   document.addEventListener('keydown', onPopupEscKeydown);
 };
 
-callbackButton.addEventListener('click', openModal);
+CALLBACKBUTTON.addEventListener('click', openModal);
 
-closeButton.addEventListener('click', closeModal);
+CLOSEBUTTON.addEventListener('click', closeModal);
 
 //Accordion
 

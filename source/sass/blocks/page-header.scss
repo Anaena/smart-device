@@ -7,7 +7,7 @@
     url("../img/promo/promo-img.png"),
     url("../img/promo/promo-mask.png"),
     url("../img/promo/background-mask.svg");
-  background-position: calc(100% - 177px) 258px, center, 100%;
+  background-position: calc(100% - 15%) 258px, center, 100%;
   background-repeat: no-repeat;
   background-size: 705px 515px, cover, cover;
 
@@ -36,7 +36,7 @@
       url("../img/promo/promo-img@2x.png"),
       url("../img/promo/promo-mask@2x.png"),
       url("../img/promo/background-mask.svg");
-    background-position: calc(100% - 177px) 258px, center, 100%;
+    background-position: calc(100% - 15%) 258px, center, 100%;
     background-repeat: no-repeat;
     background-size: 705px 515px, cover, cover;
 
@@ -93,7 +93,7 @@
 
 .page-header__contact-list {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   width: 65%;
@@ -110,25 +110,20 @@
   }
 }
 
-.page-header__link {
-  @include font($pt-mono, normal, 400);
-  font-size: 16px;
-  line-height: 18px;
-  display: inline-flex;
-  padding: 16px 0;
-  color: $white;
-  outline: none;
-
-  @media (max-width: $tablet-width) {
-    padding: 0 0 4px;
-  }
+.page-header__contact-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.page-header__link:active {
-  opacity: 0.7;
+.page-header__contact-list li {
+  display: flex;
 }
 
-.page-header__link:not(:last-of-type) {
+.page-header__contact-list li:not(:last-of-type) {
   margin-right: 88px;
 
   @media (max-width: $tablet-width) {
@@ -138,6 +133,23 @@
   @media (max-width: $mobile-width) {
     margin-right: 24px;
   }
+}
+
+.page-header__link {
+  @include font($pt-mono, normal, 400);
+  font-size: 16px;
+  line-height: 18px;
+  display: inline-flex;
+  color: $white;
+  outline: none;
+
+  @media (max-width: $tablet-width) {
+   margin: 0 0 4px;
+  }
+}
+
+.page-header__link:active {
+  opacity: 0.7;
 }
 
 .page-header__link--mail svg {
@@ -192,7 +204,7 @@
 .page-header__contact-button {
   font-size: 14px;
   line-height: 16px;
-  width: 180px;
+  min-width: 180px;
   height: 45px;
   margin: 0 0 0 50px;
   border: 1px solid $white;

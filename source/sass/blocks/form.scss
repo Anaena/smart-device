@@ -19,6 +19,7 @@
 .form__item {
   width: 100%;
   min-height: 50px;
+  background-color: $sky-blue;
 
   @media (max-width: $tablet-width) {
     min-height: 52px;
@@ -33,7 +34,7 @@
   width: 100%;
   padding: 14px 16px;
   background-color: $blue-form;
-  color: $white;
+  color: $tangaroa;
   border: none;
   outline: none;
 }
@@ -104,18 +105,19 @@
 }
 
 .form__button {
-  width: 270px;
+  max-width: 270px;
   height: 45px;
   margin: 0;
   font-size: 14px;
   line-height: 16px;
   border: 1px solid $white;
-  background-color: transparent;
+  background-color: $sky-blue;
   color: $white;
   outline: none;
 
   @media (max-width: $tablet-width) {
-    width: 280px;
+    min-width: 280px;
+    max-width: none;
   }
 
   @media (max-width: $mobile-width) {
@@ -145,8 +147,6 @@
 
   input {
     position: absolute;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
   }
 

@@ -6,6 +6,12 @@
       width: 90%;
     }
 
+    .accordion__content:first-of-type {
+      display: flex;
+      margin: 7px 0 0 5px;
+      width: 90%;
+    }
+
     .accordion__title button {
       display: none;
     }
@@ -16,7 +22,13 @@
   @media (max-width: $mobile-width) {
     .accordion__content {
       display: flex;
-      margin: 7px 0 7px 5px;
+      margin: 0 0 7px 5px;
+      width: 90%;
+    }
+
+    .accordion__content:first-of-type {
+      display: flex;
+      margin: 7px 0 0 5px;
       width: 90%;
     }
 
@@ -34,6 +46,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .accordion__title h2 {
@@ -102,17 +115,14 @@
 .accordion__content {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: flex-start;
   height: auto;
-  max-height: 123px;
   margin: 24px 0;
   padding: 0;
   list-style: none;
 
   @media (max-width: $tablet-width) {
-    max-height: none;
-    // max-height: 292px;
+    margin: 0 0 17px;
   }
 
   @media (max-width: $mobile-width) {

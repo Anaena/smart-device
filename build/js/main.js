@@ -11,7 +11,6 @@ const FEEDBACKFORM = document.querySelector('.form');
 const USERNAMEINPUT = FEEDBACKFORM.querySelector('[name="username"]');
 const USERPHONEINPUT = FEEDBACKFORM.querySelector('[name="userphone"]');
 const USERTEXTAREA = FEEDBACKFORM.querySelector('[name="question"]');
-const itemForm = document.querySelectorAll('.form__item');
 
 let storageName = "";
 let storagePhone = "";
@@ -128,6 +127,7 @@ FEEDBACKFORM.addEventListener('submit', onFormSubmit);
 // Popup
 
 const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+const itemForm = document.querySelectorAll('.form__item');
 
 const onPopupEscKeydown = (evt) => {
   if (isEscEvent(evt)) {

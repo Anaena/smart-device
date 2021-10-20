@@ -126,111 +126,84 @@
 }
 
 .service__item--production {
-  background-image: url("../img/service/production.jpg");
-  background-image:
-    image-set(
-      url("../img/service/production.webp") type("image/webp") 1x,
-      url("../img/service/production@2x.webp") type("image/webp") 2x);
 
-  @media (max-width: $tablet-width) {
-    min-width: 715px;
-    background-image: url("../img/service/production-tablet.jpg");
-    background-image:
-      image-set(
-      url("../img/service/production-tablet.webp") type("image/webp") 1x,
-      url("../img/service/production-tablet@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (max-width: $mobile-width) {
-    min-width: 290px;
-    background-image: url("../img/service/production-mobile.jpg");
-    background-image:
-      image-set(
-      url("../img/service/production-mobile.webp") type("image/webp") 1x,
-      url("../img/service/production-mobile@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (min-resolution: 2dppx) {
-    background-image: url("../img/service/production@2x.jpg");
+  .no-webp & {
+    background-image: image-set(url("../img/service/production@2x.jpg") 2x, url("../img/service/production.jpg") 1x);
 
     @media (max-width: $tablet-width) {
-      background-image: url("../img/service/production-tablet@2x.jpg");
+      min-width: 715px;
+      background-image: image-set(url("../img/service/production-tablet@2x.jpg") 2x, url("../img/service/production-tablet.jpg") 1x);
     }
 
     @media (max-width: $mobile-width) {
-      background-image: url("../img/service/production-mobile@2x.jpg");
+      min-width: 290px;
+      background-image: image-set(url("../img/service/production-mobile@2x.jpg") 2x, url("../img/service/production-mobile.jpg") 1x);
+    }
+  }
+
+  .webp & {
+    background-image: image-set(url("../img/service/production@2x.webp") 2x, url("../img/service/production.webp") 1x);
+
+    @media (max-width: $tablet-width) {
+      min-width: 715px;
+      background-image: image-set(url("../img/service/production-tablet.webp") 1x, url("../img/service/production-tablet@2x.webp") 2x);
+    }
+
+    @media (max-width: $mobile-width) {
+      min-width: 290px;
+      background-image: image-set(url("../img/service/production-mobile.webp") 1x, url("../img/service/production-mobile@2x.webp") 2x);
     }
   }
 }
 
 .service__item--assembling {
-  background-image: url("../img/service/montage.jpg");
-  background-image:
-    image-set(
-      url("../img/service/montage.webp") type("image/webp") 1x,
-      url("../img/service/montage@2x.webp") type("image/webp") 2x);
-
-  @media (max-width: $tablet-width) {
-    background-image: url("../img/service/montage-tablet.jpg");
-    background-image:
-      image-set(
-      url("../img/service/montage-tablet.webp") type("image/webp") 1x,
-      url("../img/service/montage-tablet@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (max-width: $mobile-width) {
-    background-image: url("../img/service/montage-mobile.jpg");
-    background-image:
-      image-set(
-      url("../img/service/montage-mobile.webp") type("image/webp") 1x,
-      url("../img/service/montage-mobile@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (min-resolution: 2dppx) {
-    background-image: url("../img/service/montage@2x.jpg");
+  .no-webp & {
+    background-image: image-set(url("../img/service/montage@2x.jpg") 2x, url("../img/service/montage.jpg") 1x);
 
     @media (max-width: $tablet-width) {
-      background-image: url("../img/service/montage-tablet@2x.jpg");
+      background-image: image-set(url("../img/service/montage-tablet@2x.jpg") 2x, url("../img/service/montage-tablet.jpg") 1x);
     }
 
     @media (max-width: $mobile-width) {
-      background-image: url("../img/service/montage-mobile@2x.jpg");
+      background-image: image-set(url("../img/service/montage-mobile@2x.jpg") 2x, url("../img/service/montage-mobile.jpg") 1x);
+    }
+  }
+
+  .webp & {
+    background-image: image-set(url("../img/service/montage@2x.webp") 2x, url("../img/service/montage.webp") 1x);
+
+    @media (max-width: $tablet-width) {
+      background-image: image-set(url("../img/service/montage-tablet.webp") 1x, url("../img/service/montage-tablet@2x.webp") 2x);
+    }
+
+    @media (max-width: $mobile-width) {
+      background-image: image-set(url("../img/service/montage-mobile.webp") 1x, url("../img/service/montage-mobile@2x.webp") 2x);
     }
   }
 }
 
 .service__item--accessories {
-  background-image: url("../img/service/accessories.jpg");
-  background-image:
-    image-set(
-      url("../img/service/accessories.webp") type("image/webp") 1x,
-      url("../img/service/accessories@2x.webp") type("image/webp") 2x);
-
-  @media (max-width: $tablet-width) {
-    background-image: url("../img/service/accessories-tablet.jpg");
-    background-image:
-      image-set(
-        url("../img/service/accessories-tablet.webp") type("image/webp") 1x,
-        url("../img/service/accessories-tablet@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (max-width: $mobile-width) {
-    background-image: url("../img/service/accessories-mobile.jpg");
-    background-image:
-      image-set(
-        url("../img/service/accessories-mobile.webp") type("image/webp") 1x,
-        url("../img/service/accessories-mobile@2x.webp") type("image/webp") 2x);
-  }
-
-  @media (min-resolution: 2dppx) {
-    background-image: url("../img/service/accessories@2x.jpg");
+  .no-webp & {
+    background-image: image-set(url("../img/service/accessories@2x.jpg") 2x, url("../img/service/accessories.jpg") 1x);
 
     @media (max-width: $tablet-width) {
-      background-image: url("../img/service/accessories-tablet@2x.jpg");
+      background-image: image-set(url("../img/service/accessories-tablet@2x.jpg") 2x, url("../img/service/accessories-tablet.jpg") 1x);
     }
 
     @media (max-width: $mobile-width) {
-      background-image: url("../img/service/accessories-mobile@2x.jpg");
+      background-image: image-set(url("../img/service/accessories-mobile@2x.jpg") 2x, url("../img/service/accessories-mobile.jpg") 1x);
+    }
+  }
+
+  .webp & {
+    background-image: image-set(url("../img/service/accessories@2x.webp") 2x, url("../img/service/accessories.webp") 1x);
+
+    @media (max-width: $tablet-width) {
+      background-image: image-set(url("../img/service/accessories-tablet.webp") 1x, url("../img/service/accessories-tablet@2x.webp") 2x);
+    }
+
+    @media (max-width: $mobile-width) {
+      background-image: image-set(url("../img/service/accessories-mobile.webp") 1x, url("../img/service/accessories-mobile@2x.webp") 2x);
     }
   }
 }

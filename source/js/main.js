@@ -1,66 +1,20 @@
 'use strict';
 
 const MIN_NAME_LENGTH = 1;
-const TEL_LENGHT = 10;
 const BODY = document.querySelector('body');
 const PROMOBUTTON = document.querySelector('.promo__button');
 const POPUP = document.querySelector('.popup');
 const CLOSEBUTTON = document.querySelector('.popup__close');
 const CALLBACKBUTTON = document.querySelector('.page-header__contact-button');
 const FEEDBACKFORM = document.querySelector('.form');
-const USERNAMEINPUT = FEEDBACKFORM.querySelector('[name="username"]');
-const USERPHONEINPUT = FEEDBACKFORM.querySelector('[name="userphone"]');
-const USERTEXTAREA = FEEDBACKFORM.querySelector('[name="question"]');
-
-let storageName = "";
-let storagePhone = "";
-let storageQuestion = "";
+const POPUPFORM = POPUP.querySelector('.form');
 
 // Utils
 const getBodyScrollTop = () => {
   return self.pageYOffset || (document.documentElement && document.documentElement.ScrollTop) || (document.BODY && document.BODY.scrollTop);
-}
+};
 
 PROMOBUTTON.addEventListener('click', getBodyScrollTop);
-
-function maskPhone(selector, masked = '+7(___)___-__-__') {
-  const elems = document.querySelectorAll('.form__phone');
-
-  function mask(event) {
-    const keyCode = event.keyCode;
-    const template = masked,
-      def = template.replace(/\D/g, ""),
-      val = this.value.replace(/\D/g, "");
-    console.log(template);
-    let i = 0,
-      newValue = template.replace(/[_\d]/g, function (a) {
-        return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
-      });
-    i = newValue.indexOf("_");
-    if (i !== -1) {
-      newValue = newValue.slice(0, i);
-    }
-    let reg = template.substr(0, this.value.length).replace(/_+/g,
-      function (a) {
-        return "\\d{1," + a.length + "}";
-      }).replace(/[+()]/g, "\\$&");
-    reg = new RegExp("^" + reg + "$");
-    if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
-      this.value = newValue;
-    }
-    if (event.type === "blur" && this.value.length < 5) {
-      this.value = "";
-    }
-  }
-
-  for (const elem of elems) {
-    elem.addEventListener("input", mask);
-    elem.addEventListener("focus", mask);
-    elem.addEventListener("blur", mask);
-  }
-}
-
-maskPhone();
 
 // Form
 
@@ -85,6 +39,10 @@ const checkPhoneValidity = (phoneElement) => {
   }
 };
 
+let storageName = '';
+let storagePhone = '';
+let storageQuestion = '';
+
 const storage = () => {
   try {
     storageName = localStorage.getItem('userName');
@@ -94,33 +52,60 @@ const storage = () => {
   } catch (err) {
     return false;
   }
-}
+};
 
 const isStorage = storage();
 
-USERNAMEINPUT.addEventListener('input', (evt) => {
-  checkNameValidity(USERNAMEINPUT);
-  localStorage.setItem('userName', evt.target.value);
+const fillForm = (form) => {
+  storage();
+  const nameField = form['username'];
+  const phoneField = form['user-phone'];
+  const textariaField = form['question'];
+  if (storageName) {
+    nameField.value = storageName;
+  }
+  if (storagePhone) {
+    phoneField.value = storagePhone;
+  }
+  if (storageQuestion) {
+    textariaField.value = storageQuestion;
+  }
+};
+
+fillForm(POPUPFORM);
+fillForm(FEEDBACKFORM);
+
+const userNameInput = document.querySelectorAll('[name="username"]');
+const userPhoneInput = document.querySelectorAll('[name="userphone"]');
+const userTextaria = document.querySelectorAll('[name="question"]');
+
+userNameInput.forEach((item) => {
+  item.addEventListener('input', (evt) => {
+    checkNameValidity(item);
+    localStorage.setItem('userName', evt.target.value);
+  });
 });
 
-USERPHONEINPUT.addEventListener('input', (evt) => {
-  checkPhoneValidity(USERPHONEINPUT);
-  localStorage.setItem('phoneNumber', evt.target.value);
+userPhoneInput.forEach((item) => {
+  item.addEventListener('input', (evt) => {
+    checkPhoneValidity(item);
+    localStorage.setItem('phoneNumber', evt.target.value);
+  });
 });
 
 const onFormSubmit = (evt) => {
-  if (!USERNAMEINPUT.value || !USERPHONEINPUT.value) {
+  if (!userNameInput.value || !userPhoneInput.value) {
     evt.preventDefault();
-    USERPHONEINPUT.parentNode.classList.add('form__item--error');
-    USERNAMEINPUT.parentNode.classList.add('form__item--error');
+    userPhoneInput.parentNode.classList.add('form__item--error');
+    userNameInput.parentNode.classList.add('form__item--error');
   } else {
     if (isStorage) {
-      localStorage.setItem('userName', USERNAMEINPUT.value);
-      localStorage.setItem('phoneNumber', USERPHONEINPUT.value);
-      localStorage.setItem('userQuestion', USERTEXTAREA.value);
+      localStorage.setItem('userName', userNameInput.value);
+      localStorage.setItem('phoneNumber', userPhoneInput.value);
+      localStorage.setItem('userQuestion', userTextaria.value);
     }
   }
-}
+};
 
 FEEDBACKFORM.addEventListener('submit', onFormSubmit);
 
@@ -139,13 +124,13 @@ const onPopupEscKeydown = (evt) => {
 const closeModal = () => {
   POPUP.classList.remove('popup--show');
   BODY.classList.remove('page__body--locked');
-  FEEDBACKFORM.reset();
+  POPUPFORM.reset();
   itemForm.forEach((item) => {
     item.classList.remove('form__item--error');
   });
   POPUP.removeEventListener('click', hideModal);
   document.removeEventListener('keydown', onPopupEscKeydown);
-}
+};
 
 const hideModal = (evt) => {
   if (evt.target === POPUP) {
@@ -165,7 +150,7 @@ CALLBACKBUTTON.addEventListener('click', openModal);
 
 CLOSEBUTTON.addEventListener('click', closeModal);
 
-//Accordion
+// Accordion
 
 const pageFooter = document.querySelector('.page-footer');
 const accordion = document.querySelector('.accordion');

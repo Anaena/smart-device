@@ -81,11 +81,7 @@
   margin: 0 0 40px 3px;
 
   @media (max-width: $tablet-width) {
-    overflow: hidden;
-    display: -webkit-box;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+
     margin: 0 0 37px 3px;
   }
 

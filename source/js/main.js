@@ -1,6 +1,6 @@
 'use strict';
 
-const MIN_NAME_LENGTH = 1;
+const MIN_PHONE_LENGTH = 16;
 const BODY = document.querySelector('body');
 const PROMOBUTTON = document.querySelector('.promo__button');
 const POPUP = document.querySelector('.popup');
@@ -17,27 +17,6 @@ const getBodyScrollTop = () => {
 PROMOBUTTON.addEventListener('click', getBodyScrollTop);
 
 // Form
-
-const checkNameValidity = (nameElement) => {
-  const inputElement = nameElement.parentNode;
-  const valueLength = nameElement.value.length;
-
-  if (valueLength < MIN_NAME_LENGTH) {
-    inputElement.classList.add('form__item--error');
-  } else {
-    inputElement.classList.remove('form__item--error');
-  }
-};
-
-const checkPhoneValidity = (phoneElement) => {
-  const inputElement = phoneElement.parentNode;
-
-  if (phoneElement.validity.patternMismatch) {
-    inputElement.classList.add('form__item--error');
-  } else {
-    inputElement.classList.remove('form__item--error');
-  }
-};
 
 let storageName = '';
 let storagePhone = '';
@@ -59,7 +38,7 @@ const isStorage = storage();
 const fillForm = (form) => {
   storage();
   const nameField = form['username'];
-  const phoneField = form['user-phone'];
+  const phoneField = form['userphone'];
   const textariaField = form['question'];
   if (storageName) {
     nameField.value = storageName;
@@ -75,36 +54,47 @@ const fillForm = (form) => {
 fillForm(POPUPFORM);
 fillForm(FEEDBACKFORM);
 
-const userNameInput = document.querySelectorAll('[name="username"]');
 const userPhoneInput = document.querySelectorAll('[name="userphone"]');
-const userTextaria = document.querySelectorAll('[name="question"]');
-
-userNameInput.forEach((item) => {
-  item.addEventListener('input', (evt) => {
-    checkNameValidity(item);
-    localStorage.setItem('userName', evt.target.value);
-  });
-});
 
 userPhoneInput.forEach((item) => {
+  const inputElement = item.parentNode;
+  const valueLength = item.value.length;
   item.addEventListener('input', (evt) => {
-    checkPhoneValidity(item);
-    localStorage.setItem('phoneNumber', evt.target.value);
+    if (valueLength < MIN_PHONE_LENGTH) {
+      evt.preventDefault();
+      inputElement.classList.add('form__item--error');
+      item.setCustomValidity('Неправильный формат номера');
+    } else {
+      inputElement.classList.remove('form__item--error');
+      item.setCustomValidity('');
+    }
+    item.reportValidity();
   });
 });
 
-const onFormSubmit = (evt) => {
-  if (!userNameInput.value || !userPhoneInput.value) {
-    evt.preventDefault();
-    userPhoneInput.parentNode.classList.add('form__item--error');
-    userNameInput.parentNode.classList.add('form__item--error');
-  } else {
-    if (isStorage) {
-      localStorage.setItem('userName', userNameInput.value);
-      localStorage.setItem('phoneNumber', userPhoneInput.value);
-      localStorage.setItem('userQuestion', userTextaria.value);
-    }
+const formDataSave = (form) => {
+  if (isStorage) {
+    localStorage.setItem('userName', form['username'].value);
+    localStorage.setItem('userPhone', form['userphone'].value);
+    localStorage.setItem('userQuestion', form['question'].value);
   }
+};
+
+const onFormSubmit = (evt) => {
+  const target = evt.target.closest('form');
+  const phoneParentElement = target.querySelector('.form__item--phone');
+  const phoneElement = target.querySelector('[type="tel"]');
+  const valueLength = phoneElement.value.length;
+  if (valueLength < MIN_PHONE_LENGTH) {
+    evt.preventDefault();
+    phoneParentElement.classList.add('form__item--error');
+    phoneElement.setCustomValidity('Неправильный формат номера');
+  } else {
+    phoneParentElement.classList.remove('form__item--error');
+    phoneElement.setCustomValidity('');
+    formDataSave(target);
+  }
+  phoneElement.reportValidity();
 };
 
 FEEDBACKFORM.addEventListener('submit', onFormSubmit);
@@ -146,9 +136,32 @@ const openModal = () => {
   document.addEventListener('keydown', onPopupEscKeydown);
 };
 
+const switchPopupElement = (evt) =>{
+  const popup = evt.target.closest('.popup');
+  const elements = [...popup.querySelector('form').elements];
+
+  if (evt.key === 'Tab') {
+    if (evt.shiftKey) {
+      if (evt.target === elements[0]) {
+        evt.preventDefault();
+        CLOSEBUTTON.focus();
+      }
+    } else {
+      if (evt.target === CLOSEBUTTON) {
+        evt.preventDefault();
+        elements[0].focus();
+      }
+    }
+  }
+};
+
+POPUP.addEventListener('keydown', switchPopupElement);
+
 CALLBACKBUTTON.addEventListener('click', openModal);
 
 CLOSEBUTTON.addEventListener('click', closeModal);
+
+POPUPFORM.addEventListener('submit', onFormSubmit);
 
 // Accordion
 

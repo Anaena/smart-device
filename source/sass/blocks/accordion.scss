@@ -111,7 +111,6 @@
   }
 }
 
-
 .accordion__content {
   display: flex;
   flex-direction: column;
@@ -127,6 +126,16 @@
 
   @media (max-width: $mobile-width) {
     display: none;
+  }
+}
+
+.accordion__content--block {
+  @media (max-width: 1302px) {
+    margin-top: 0;
+  }
+
+  @media (max-width: $tablet-width) {
+    margin: 0 0 17px;
   }
 }
 

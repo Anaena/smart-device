@@ -81,7 +81,11 @@
   margin: 0 0 40px 3px;
 
   @media (max-width: $tablet-width) {
-
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     margin: 0 0 37px 3px;
   }
 
@@ -139,7 +143,7 @@
   @include font($roboto-condensed, normal, 700);
   font-size: 156px;
   line-height: 220px;
-  background-image: url("../../img/about/about-mask.jpg");
+  background-image: url("../img/about/about-mask.jpg");
   transform: scale(-1);
   writing-mode: vertical-lr;
   background-clip: text;
@@ -151,6 +155,6 @@
   }
 
   @media (min-resolution: 2dppx) {
-    background-image: url("../../img/about/about-mask@2x.jpg");
+    background-image: url("../img/about/about-mask@2x.jpg");
   }
 }

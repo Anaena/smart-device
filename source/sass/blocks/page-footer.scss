@@ -14,7 +14,7 @@
   position: absolute;
   width: 100%;
   height: 1px;
-  bottom: 16%;
+  bottom: 17%;
   background-color: $finlandia-line;
 
   @media (max-width: $tablet-width) {
@@ -148,7 +148,6 @@
 .page-footer__middle {
   min-height: 150px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   grid-column: 3 / 8;
@@ -156,6 +155,7 @@
 
   @media (max-width: $tablet-width) {
     position: relative;
+    flex-wrap: wrap;
     grid-column: 1 / -1;
     grid-row: 2 / 3;
     padding-top: 14px;
@@ -211,10 +211,17 @@
   display: flex;
   flex-wrap: wrap;
 
+  @media (max-width: 1302px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-width: 315px;
+  }
+
   @media (max-width: $tablet-width) {
     width: calc((100% - 20px) / 2);
     min-width: 343px;
     margin: 0 20px 0 0;
+    flex-wrap: wrap;
   }
 
   @media (max-width: $mobile-width) {
@@ -226,6 +233,10 @@
 
 .page-footer__navigation ul:first-of-type {
   margin-right: 20px;
+
+  @media (max-width: 1302px) {
+    margin-bottom: 0;
+  }
 
   @media (max-width: $tablet-width) {
     margin: 24px 20px 0 0;
@@ -364,6 +375,8 @@
 }
 
 .page-footer__confidence {
+  margin: 0 15px 0 0;
+
   @media (max-width: $tablet-width) {
     margin: 0 0 0 10px;
   }

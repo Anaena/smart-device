@@ -1,5 +1,6 @@
 .logo {
   width: 25%;
+  min-width: 202px;
   height: 52px;
 
   @media (max-width: $tablet-width) {
@@ -8,6 +9,7 @@
 
   @media (max-width: $mobile-width) {
     height: 38px;
+    min-width: 38px;
   }
 }
 

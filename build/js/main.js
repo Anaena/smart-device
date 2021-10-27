@@ -1,6 +1,5 @@
 'use strict';
 
-const MIN_PHONE_LENGTH = 16;
 const BODY = document.querySelector('body');
 const PROMOBUTTON = document.querySelector('.promo__button');
 const POPUP = document.querySelector('.popup');
@@ -56,20 +55,25 @@ fillForm(FEEDBACKFORM);
 
 const userPhoneInput = document.querySelectorAll('[name="userphone"]');
 
+const checkPhoneValidity = (evt) => {
+  const target = evt.target.closest('form');
+  target.reportValidity();
+  const phoneElement = target.querySelector('[type="tel"]');
+  const phonePattern = /\+7\(\d{3}\)\d{3}-\d\d-\d\d/;
+  const phoneParentElement = target.querySelector('.form__item--phone');
+  if (!phonePattern.test(phoneElement.value)) {
+    evt.preventDefault();
+    phoneElement.setCustomValidity('Неправильный формат номера');
+    phoneParentElement.classList.add('form__item--error');
+  } else {
+    phoneParentElement.classList.remove('form__item--error');
+    phoneElement.setCustomValidity('');
+  }
+  phoneElement.reportValidity();
+};
+
 userPhoneInput.forEach((item) => {
-  const inputElement = item.parentNode;
-  const valueLength = item.value.length;
-  item.addEventListener('input', (evt) => {
-    if (valueLength < MIN_PHONE_LENGTH) {
-      evt.preventDefault();
-      inputElement.classList.add('form__item--error');
-      item.setCustomValidity('Неправильный формат номера');
-    } else {
-      inputElement.classList.remove('form__item--error');
-      item.setCustomValidity('');
-    }
-    item.reportValidity();
-  });
+  item.addEventListener('input', checkPhoneValidity);
 });
 
 const formDataSave = (form) => {
@@ -82,19 +86,21 @@ const formDataSave = (form) => {
 
 const onFormSubmit = (evt) => {
   const target = evt.target.closest('form');
-  const phoneParentElement = target.querySelector('.form__item--phone');
   const phoneElement = target.querySelector('[type="tel"]');
-  const valueLength = phoneElement.value.length;
-  if (valueLength < MIN_PHONE_LENGTH) {
+  const nameElement = target.querySelector('[name="username"]');
+  const nameParentElement = target.querySelector('.form__item--name');
+  const phoneParentElement = target.querySelector('.form__item--phone');
+  if (!phoneElement.value) {
     evt.preventDefault();
     phoneParentElement.classList.add('form__item--error');
-    phoneElement.setCustomValidity('Неправильный формат номера');
+  } else if (!nameElement.value) {
+    evt.preventDefault();
+    nameParentElement.classList.add('form__item--error');
   } else {
+    nameParentElement.classList.remove('form__item--error');
     phoneParentElement.classList.remove('form__item--error');
-    phoneElement.setCustomValidity('');
     formDataSave(target);
   }
-  phoneElement.reportValidity();
 };
 
 FEEDBACKFORM.addEventListener('submit', onFormSubmit);

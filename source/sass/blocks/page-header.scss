@@ -3,57 +3,105 @@
   height: auto;
   min-height: 878px;
   background-color: $tangaroa;
-  background-image:
-    url("../img/promo/promo-mask.png"),
-    url("../img/promo/background-mask.svg");
+  background-image: url("../img/promo/promo-mask.png");
   background-position: center, 100%;
   background-repeat: no-repeat;
   background-size: cover, cover;
 
   @media (max-width: $tablet-width) {
     min-height: 687px;
-    background-image:
-      url("../img/promo/promo-img-tablet.png"),
-      url("../img/promo/promo-mask-tablet.png"),
-      url("../img/promo/background-mask-tablet.svg");
-    background-position: right 112px, center, calc(100% + 2px) 0;
-    background-size: 260px 340px, cover, auto;
+    background-image: url("../img/promo/promo-mask-tablet.png");
+    background-position: center;
+    background-size: cover;
   }
 
   @media (max-width: $mobile-width) {
     min-height: 647px;
+    background-image: url("../img/promo/promo-mask-mobile.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../img/promo/promo-mask@2x.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: $tablet-width) {
+      background-image: url("../img/promo/promo-mask-tablet@2x.png");
+      background-position: center;
+      background-size: cover;
+    }
+
+    @media (max-width: $mobile-width) {
+      background-image: url("../img/promo/promo-mask-mobile@2x.png");
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+
+.page-header__container {
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-image:
+    url("../img/promo/promo-img.png"),
+    url("../img/promo/background-mask.svg");
+  background-position: calc(100% - 179px) 258px, 100%;
+  background-repeat: no-repeat;
+  background-size: auto, cover;
+
+  @media (max-width: 1540px) {
+    background-position: right 258px, right 0;
+    background-size: 50%, auto;
+  }
+
+  @media (max-width: $tablet-width) {
+    background-image:
+      url("../img/promo/promo-img-tablet.png"),
+      url("../img/promo/background-mask-tablet.svg");
+    background-position: right 112px, calc(100% + 2px) 0;
+    background-size: 260px 340px, auto;
+  }
+
+  @media (max-width: $mobile-width) {
     background-image:
       url("../img/promo/promo-img.png"),
-      url("../img/promo/promo-mask-mobile.png"),
       url("../img/promo/background-mask-mobile.svg");
-    background-position: calc(50% + 15px) 92px, center, 100% 0;
-    background-size: 294px 220px, cover, auto;
+    background-position: calc(50% + 15px) 92px, 100% 0;
+    background-size: 294px 220px, auto;
   }
 
   @media (min-resolution: 2dppx) {
     background-image:
-      url("../img/promo/promo-mask@2x.png"),
+      url("../img/promo/promo-img@2x.png"),
       url("../img/promo/background-mask.svg");
-    background-position: center, 100%;
+    background-position: calc(100% - 179px) 258px, 100%;
     background-repeat: no-repeat;
-    background-size: cover, cover;
+    background-size: 705px 515px, cover;
+
+    @media (max-width: 1540px) {
+      background-position: right 258px, right 0;
+      background-size: 50%, auto;
+    }
 
     @media (max-width: $tablet-width) {
       background-image:
         url("../img/promo/promo-img-tablet@2x.png"),
-        url("../img/promo/promo-mask-tablet@2x.png"),
         url("../img/promo/background-mask-tablet.svg");
-      background-position: 100% 112px, center, calc(100% + 2px) 0;
-      background-size: 260px 340px, cover, auto;
+      background-position: 100% 112px, calc(100% + 2px) 0;
+      background-size: 260px 340px, auto;
     }
 
     @media (max-width: $mobile-width) {
       background-image:
         url("../img/promo/promo-img@2x.png"),
-        url("../img/promo/promo-mask-mobile@2x.png"),
         url("../img/promo/background-mask-mobile.svg");
-      background-position: calc(50% + 15px) 92px, center, 100% 0;
-      background-size: 294px 220px, cover, auto;
+      background-position: calc(50% + 15px) 92px, 100% 0;
+      background-size: 294px 220px, auto;
     }
   }
 }
